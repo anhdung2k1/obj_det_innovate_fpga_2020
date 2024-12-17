@@ -1,10 +1,10 @@
-click==6.7
-easydict==1.6
-numpy==1.14.0
-Pillow==6.2.1
-PyYAML==4.2b4
-opencv-python==3.4.0.14
+click
+easydict
+numpy
+Pillow
+PyYAML
+
 
 # for python2
-enum34==1.1.6
-six==1.11.0
+enum34
+six

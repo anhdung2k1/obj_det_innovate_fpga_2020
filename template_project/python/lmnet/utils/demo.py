@@ -147,16 +147,16 @@ class VideoStream:
 
 
 def run_inference(image, nn, pre_process, post_process):
-    start = time.clock()
+    start = time.perf_counter()()
 
     data = pre_process(image=image)["image"]
     data = np.expand_dims(data, axis=0)
 
-    network_only_start = time.clock()
+    network_only_start = time.perf_counter()()
     result = nn.run(data)
-    fps_only_network = 1.0/(time.clock() - network_only_start)
+    fps_only_network = 1.0/(time.perf_counter()() - network_only_start)
 
     output = post_process(outputs=result)['outputs']
 
-    fps = 1.0/(time.clock() - start)
+    fps = 1.0/(time.perf_counter()() - start)
     return output, fps, fps_only_network
